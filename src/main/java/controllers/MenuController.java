@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
@@ -12,7 +13,16 @@ public class MenuController {
 
 	@FXML
 	public void beginTest() {
-		//
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/QuestionScreen.fxml"));
+		Pane pane = null;
+		try {
+			pane = loader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		QuestionController questionController = loader.getController();
+		questionController.setMainController(mainController);
+		mainController.setScreen(pane);
 	}
 	
 	@FXML
@@ -31,6 +41,11 @@ public class MenuController {
 	
 	public void setMainController(MainController mainController) {
 		this.mainController = mainController;
+	}
+	
+	@FXML
+	public void exitApp() {
+		Platform.exit();
 	}
 	
 }
