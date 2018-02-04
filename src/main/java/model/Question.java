@@ -2,16 +2,22 @@ package model;
 
 public class Question {
 	
+	private String questionFileName;
 	private boolean[] correctAnswers;
 	private String questionText;
 	private String[] answers;
 	private int numbOfRep;
 	
-	public Question(boolean[] correctAnswers, String questionText, String[] answers, int numbOfRep) {
+	public Question(String questionFileName, boolean[] correctAnswers, String questionText, String[] answers, int numbOfRep) {
+		this.questionFileName = questionFileName;
 		this.correctAnswers = correctAnswers;
 		this.questionText = questionText;
 		this.answers = answers;
 		this.numbOfRep = numbOfRep;
+	}
+	
+	public String getQuestionFileName() {
+		return questionFileName;
 	}
 	
 	public boolean[] getCorrectAnswers() {
