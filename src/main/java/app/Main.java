@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import model.Question;
 import utils.QuestionReader;
 
 public class Main extends Application{
@@ -14,7 +15,10 @@ public class Main extends Application{
 	public static void main(String[] args) throws IOException {
 		launch(args);
 		QuestionReader reader = new QuestionReader("baza");
-		reader.getQuestion(0);
+		Question testQuestion = reader.getQuestion(0);
+		System.out.println(testQuestion.getQuestionFileName());
+		System.out.println(testQuestion.getQuestionText());
+		System.out.println(testQuestion.getAnswers()[0]);
 	}
 
 	@Override

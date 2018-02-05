@@ -8,12 +8,12 @@ public class Question {
 	private String[] answers;
 	private int numbOfRep;
 	
-	public Question(String questionFileName, boolean[] correctAnswers, String questionText, String[] answers, int numbOfRep) {
+	public Question(String questionFileName, boolean[] correctAnswers, String questionText, String[] answers) {
 		this.questionFileName = questionFileName;
 		this.correctAnswers = correctAnswers;
 		this.questionText = questionText;
 		this.answers = answers;
-		this.numbOfRep = numbOfRep;
+		numbOfRep = 1; // default
 	}
 	
 	public String getQuestionFileName() {
