@@ -22,6 +22,7 @@ public class MenuController {
 		}
 		QuestionController questionController = loader.getController();
 		questionController.setMainController(mainController);
+		questionController.setFolderName("baza"); // temporary
 		mainController.setScreen(pane);
 	}
 	

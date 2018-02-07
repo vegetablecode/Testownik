@@ -14,11 +14,6 @@ public class Main extends Application{
 
 	public static void main(String[] args) throws IOException {
 		launch(args);
-		QuestionReader reader = new QuestionReader("baza");
-		Question testQuestion = reader.getQuestion(0);
-		System.out.println(testQuestion.getQuestionFileName());
-		System.out.println(testQuestion.getQuestionText());
-		System.out.println(testQuestion.getAnswers()[0]);
 	}
 
 	@Override

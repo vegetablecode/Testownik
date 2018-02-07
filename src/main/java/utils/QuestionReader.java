@@ -40,6 +40,10 @@ public class QuestionReader {
 		files = f.listFiles(textFilter);
 		return files.length;
 	}
+	
+	public int getNumbOfQuestions() {
+		return numbOfQuestions;
+	}
 
 	public Question getQuestion(int index) throws IOException {
 		try (BufferedReader br = new BufferedReader(
