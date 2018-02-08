@@ -3,6 +3,8 @@ package controllers;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import model.QuestionList;
 import utils.QuestionReader;
 
@@ -12,6 +14,12 @@ public class QuestionController {
 	private String folderName;
 	private QuestionList questionList;
 	private QuestionReader questionReader;
+	
+	@FXML
+	private Label questionTextLabel;
+	@FXML
+	private Button answerOneButton;
+	
 	
 	@FXML
 	public void backToMenu() {
@@ -36,7 +44,9 @@ public class QuestionController {
 		
 		// set buttons etc.
 		
-		System.out.println("QC TEST:");
+		//questionTextLabel.setText("SIEMA");
+		//questionTextLabel.setText(questionList.getQuestion(0).getQuestionText());
+		//answerOneButton.setText(questionList.getQuestion(0).getAnswers()[0]);
 		System.out.println(questionList.getQuestion(0).getQuestionText());
 		System.out.println(questionList.getQuestion(5).getQuestionText());
 	}
