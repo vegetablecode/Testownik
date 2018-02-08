@@ -12,7 +12,7 @@ public class MenuController {
 	private MainController mainController;
 
 	@FXML
-	public void beginTest() {
+	public void beginTest() throws IOException {
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/QuestionScreen.fxml"));
 		Pane pane = null;
 		try {
@@ -21,8 +21,9 @@ public class MenuController {
 			e.printStackTrace();
 		}
 		QuestionController questionController = loader.getController();
-		questionController.setMainController(mainController);
 		questionController.setFolderName("baza"); // temporary
+		questionController.setQuestions();
+		questionController.setMainController(mainController);
 		mainController.setScreen(pane);
 	}
 	

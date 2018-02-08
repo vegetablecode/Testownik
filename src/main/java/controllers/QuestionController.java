@@ -11,21 +11,7 @@ public class QuestionController {
 	private MainController mainController;
 	private String folderName;
 	private QuestionList questionList;
-	
-	@FXML
-	public void initialize() throws IOException {
-		QuestionReader questionReader = new QuestionReader("baza");
-		questionList = new QuestionList(questionReader.getNumbOfQuestions());
-		for(int i=0; i<questionList.getNumbOfQuestions(); i++) {
-			questionList.setQuestion(i, questionReader.getQuestion(i));
-		}
-		
-		// set buttons etc.
-		
-		System.out.println("QC TEST:");
-		System.out.println(questionList.getQuestion(0).getQuestionText());
-		System.out.println(questionList.getQuestion(5).getQuestionText());
-	}
+	private QuestionReader questionReader;
 	
 	@FXML
 	public void backToMenu() {
@@ -38,6 +24,21 @@ public class QuestionController {
 	
 	public void setFolderName(String folderName) {
 		this.folderName = folderName;
+		System.out.println("DZIALA");
+	}
+
+	public void setQuestions() throws IOException {
+		questionReader = new QuestionReader(folderName);
+		questionList = new QuestionList(questionReader.getNumbOfQuestions());
+		for(int i=0; i<questionList.getNumbOfQuestions(); i++) {
+			questionList.setQuestion(i, questionReader.getQuestion(i));
+		}
+		
+		// set buttons etc.
+		
+		System.out.println("QC TEST:");
+		System.out.println(questionList.getQuestion(0).getQuestionText());
+		System.out.println(questionList.getQuestion(5).getQuestionText());
 	}
 	
 
