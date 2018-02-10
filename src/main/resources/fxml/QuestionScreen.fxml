@@ -12,22 +12,49 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuestionController">
    <children>
       <Button layoutX="724.0" layoutY="559.0" mnemonicParsing="false" onAction="#backToMenu" text="Powrót" />
-      <Label fx:id="questionTextLabel" layoutX="64.0" layoutY="70.0" prefHeight="104.0" prefWidth="672.0" text="test" />
+      <Label fx:id="questionTextLabel" layoutX="24.0" layoutY="39.0" prefHeight="93.0" prefWidth="757.0" text="test" />
       <Button layoutX="724.0" layoutY="509.0" mnemonicParsing="false" onAction="#checkAnswers" prefHeight="41.0" prefWidth="61.0" text="OK" />
-      <Text layoutX="64.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Treść pytania" wrappingWidth="145.21875">
+      <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Treść pytania" wrappingWidth="145.21875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text layoutX="64.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Odpowiedzi">
+      <Text layoutX="23.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Odpowiedzi">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Separator layoutX="64.0" layoutY="172.0" prefHeight="9.0" prefWidth="672.0" />
-      <Separator layoutX="64.0" layoutY="42.0" prefHeight="9.0" prefWidth="672.0" />
-      <CheckBox fx:id="checkboxA" layoutX="64.0" layoutY="235.0" mnemonicParsing="false" onAction="#selectA" prefHeight="41.0" prefWidth="31.0" />
-      <Label fx:id="labelA" layoutX="104.0" layoutY="209.0" prefHeight="93.0" prefWidth="635.0" />
-      <ImageView fx:id="pictureA" fitHeight="93.0" fitWidth="635.0" layoutX="109.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
+      <Separator layoutX="22.0" layoutY="12.0" prefHeight="9.0" prefWidth="757.0" />
+      <CheckBox fx:id="aCheckBox" layoutX="24.0" layoutY="175.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="aLabel" layoutX="55.0" layoutY="163.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="aImage" fitHeight="66.0" fitWidth="309.0" layoutX="69.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" />
+      <Separator layoutX="22.0" layoutY="128.0" prefHeight="9.0" prefWidth="757.0" />
+      <CheckBox fx:id="bCheckBox" layoutX="24.0" layoutY="249.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="bLabel" layoutX="55.0" layoutY="237.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="bImage" fitHeight="66.0" fitWidth="309.0" layoutX="69.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" />
+      <CheckBox fx:id="cCheckBox" layoutX="24.0" layoutY="322.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="cLabel" layoutX="55.0" layoutY="310.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="cImage" fitHeight="66.0" fitWidth="309.0" layoutX="69.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
+      <CheckBox fx:id="dCheckBox" layoutX="24.0" layoutY="398.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="dLabel" layoutX="55.0" layoutY="386.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="dImage" fitHeight="66.0" fitWidth="309.0" layoutX="69.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true" />
+      <CheckBox fx:id="eCheckBox" layoutX="24.0" layoutY="475.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="eLabel" layoutX="55.0" layoutY="463.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="eImage" fitHeight="66.0" fitWidth="309.0" layoutX="69.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true" />
+      <CheckBox fx:id="fCheckBox" layoutX="24.0" layoutY="543.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="fLabel" layoutX="55.0" layoutY="526.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="fImage" fitHeight="66.0" fitWidth="309.0" layoutX="69.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true" />
+      <CheckBox fx:id="gCheckBox" layoutX="403.0" layoutY="176.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="gLabel" layoutX="434.0" layoutY="163.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="gImage" fitHeight="66.0" fitWidth="309.0" layoutX="446.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" />
+      <CheckBox fx:id="hCheckBox" layoutX="403.0" layoutY="249.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="hLabel" layoutX="434.0" layoutY="237.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="hImage" fitHeight="66.0" fitWidth="309.0" layoutX="446.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" />
+      <CheckBox fx:id="iCheckBox" layoutX="403.0" layoutY="322.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="iLabel" layoutX="434.0" layoutY="310.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="iImage" fitHeight="66.0" fitWidth="309.0" layoutX="446.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
+      <CheckBox fx:id="jCheckBox" layoutX="403.0" layoutY="398.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="jLabel" layoutX="434.0" layoutY="386.0" prefHeight="66.0" prefWidth="300.0" />
+      <ImageView fx:id="jImage" fitHeight="66.0" fitWidth="309.0" layoutX="446.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
