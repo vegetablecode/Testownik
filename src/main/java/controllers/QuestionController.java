@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import model.QuestionList;
 import utils.QuestionReader;
 
@@ -15,17 +17,36 @@ public class QuestionController {
 	private QuestionList questionList;
 	private QuestionReader questionReader;
 	
+	// FXML attributes
 	@FXML
 	private Label questionTextLabel;
 	@FXML
-	private Button answerOneButton;
+	private Label labelA;
+	@FXML
+	private ImageView imageA;
+	@FXML
+	private CheckBox checkboxA;
 	
-	
+	// FXML methods
 	@FXML
 	public void backToMenu() {
 		mainController.loadMenuScreen();
 	}
-
+	@FXML
+	public void checkAnswers() {
+		System.out.println("CHECKING THE ANSWERS");
+	}
+	@FXML
+	public void selectA() {
+		if(checkboxA.isSelected()) {
+			System.out.println("A SELECTED");
+		}
+		else
+			System.out.println("A UNSELECTED");
+	}
+	
+	
+	// class setup
 	public void setMainController(MainController mainController) {
 		this.mainController = mainController;
 	}
@@ -44,12 +65,10 @@ public class QuestionController {
 		
 		// set buttons etc.
 		
-		//questionTextLabel.setText("SIEMA");
-		//questionTextLabel.setText(questionList.getQuestion(0).getQuestionText());
-		//answerOneButton.setText(questionList.getQuestion(0).getAnswers()[0]);
 		System.out.println(questionList.getQuestion(0).getQuestionText());
 		System.out.println(questionList.getQuestion(5).getQuestionText());
 	}
 	
+	// view setup
 
 }

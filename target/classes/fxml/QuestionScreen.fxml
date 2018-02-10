@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuestionController">
    <children>
       <Button layoutX="724.0" layoutY="559.0" mnemonicParsing="false" onAction="#backToMenu" text="Powrót" />
-      <Label fx:id="questionTextLabel" layoutX="64.0" layoutY="59.0" prefHeight="104.0" prefWidth="672.0" />
-      <Button fx:id="answerOneButton" layoutX="151.0" layoutY="193.0" mnemonicParsing="false" onAction="#oneButtonClicked" prefHeight="59.0" prefWidth="499.0" text="Button" />
-      <Button fx:id="answerTwoButton" layoutX="151.0" layoutY="252.0" mnemonicParsing="false" onAction="#twoButtonClicked" prefHeight="59.0" prefWidth="499.0" text="Button" />
-      <Button fx:id="answerThreeButton" layoutX="151.0" layoutY="311.0" mnemonicParsing="false" onAction="#threeButtonClicked" prefHeight="59.0" prefWidth="499.0" text="Button" />
-      <Button fx:id="answerFourButton" layoutX="151.0" layoutY="370.0" mnemonicParsing="false" onAction="#fourButtonClicked" prefHeight="59.0" prefWidth="499.0" text="Button" />
-      <Button fx:id="answerFiveButton" layoutX="151.0" layoutY="429.0" mnemonicParsing="false" onAction="#fiveButtonClicked" prefHeight="59.0" prefWidth="499.0" text="Button" />
-      <Button fx:id="answerSixButton" layoutX="151.0" layoutY="488.0" mnemonicParsing="false" onAction="#sixButtonClicked" prefHeight="59.0" prefWidth="499.0" text="Button" />
+      <Label fx:id="questionTextLabel" layoutX="64.0" layoutY="70.0" prefHeight="104.0" prefWidth="672.0" text="test" />
+      <Button layoutX="724.0" layoutY="509.0" mnemonicParsing="false" onAction="#checkAnswers" prefHeight="41.0" prefWidth="61.0" text="OK" />
+      <Text layoutX="64.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Treść pytania" wrappingWidth="145.21875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="64.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Odpowiedzi">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Separator layoutX="64.0" layoutY="172.0" prefHeight="9.0" prefWidth="672.0" />
+      <Separator layoutX="64.0" layoutY="42.0" prefHeight="9.0" prefWidth="672.0" />
+      <CheckBox fx:id="checkboxA" layoutX="64.0" layoutY="235.0" mnemonicParsing="false" onAction="#selectA" prefHeight="41.0" prefWidth="31.0" />
+      <Label fx:id="labelA" layoutX="104.0" layoutY="209.0" prefHeight="93.0" prefWidth="635.0" />
+      <ImageView fx:id="pictureA" fitHeight="93.0" fitWidth="635.0" layoutX="109.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
