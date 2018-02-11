@@ -1,9 +1,9 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.List;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -18,88 +18,29 @@ public class QuestionController {
 	private QuestionList questionList;
 	private QuestionReader questionReader;
 	
-	// FXML attributes
+	private int questionNumber;
+	
+	@FXML
+	private List<Label> labelList;
+	@FXML
+	private List<CheckBox> checkBoxList;
+	@FXML
+	private List<ImageView> imageList;
 	@FXML
 	private Label questionTextLabel;
-	@FXML
-	private Label aLabel;
-	@FXML
-	private Label bLabel;
-	@FXML
-	private Label cLabel;
-	@FXML
-	private Label dLabel;
-	@FXML
-	private Label eLabel;
-	@FXML
-	private Label fLabel;
-	@FXML
-	private Label gLabel;
-	@FXML
-	private Label hLabel;
-	@FXML
-	private Label iLabel;
-	@FXML
-	private Label jLabel;
-	@FXML
-	private ImageView aImage;
-	@FXML
-	private ImageView bImage;
-	@FXML
-	private ImageView cImage;
-	@FXML
-	private ImageView dImage;
-	@FXML
-	private ImageView eImage;
-	@FXML
-	private ImageView fImage;
-	@FXML
-	private ImageView gImage;
-	@FXML
-	private ImageView hImage;
-	@FXML
-	private ImageView iImage;
-	@FXML
-	private ImageView jImage;
-	@FXML
-	private CheckBox aCheckBox;
-	@FXML
-	private CheckBox bCheckBox;
-	@FXML
-	private CheckBox cCheckBox;
-	@FXML
-	private CheckBox dCheckBox;
-	@FXML
-	private CheckBox eCheckBox;
-	@FXML
-	private CheckBox fCheckBox;
-	@FXML
-	private CheckBox gCheckBox;
-	@FXML
-	private CheckBox hCheckBox;
-	@FXML
-	private CheckBox iCheckBox;
-	@FXML
-	private CheckBox jCheckBox;
 	
-	// FXML arrays
-	//private Label[] labels = {aLabel, bLabel, cLabel, dLabel, eLabel, fLabel, gLabel, hLabel, iLabel, jLabel};
-	//private ImageView[] images = {aImage, bImage, cImage, dImage, eImage, fImage, gImage, hImage, iImage, jImage};
-	//private CheckBox[] checks = {aCheckBox, bCheckBox, cCheckBox, dCheckBox, eCheckBox, fCheckBox, gCheckBox, hCheckBox, iCheckBox, jCheckBox};
-	
-	// FXML methods
+	// ----- FXML METHODS ----- //
 	@FXML
 	public void backToMenu() {
 		mainController.loadMenuScreen();
 	}
 	@FXML
 	public void checkAnswers() {
-		System.out.println("CHECKING THE ANSWERS");
+		questionNumber++;
+		displayQuestion(questionList.getQuestion(questionNumber));
 	}
 	
-	
-	
-	// class setup
+	// ----- CLASS SETUP ----- //
 	public void setMainController(MainController mainController) {
 		this.mainController = mainController;
 	}
@@ -115,22 +56,36 @@ public class QuestionController {
 			questionList.setQuestion(i, questionReader.getQuestion(i));
 		}
 		
-		displayQuestion(questionList.getQuestion(0));
+		questionNumber = 0;
+		displayQuestion(questionList.getQuestion(questionNumber));
 		
-		//System.out.println(questionList.getQuestion(0).getQuestionText());
-		//System.out.println(questionList.getQuestion(5).getQuestionText());
+		// view setup
+		for(int i=0; i<labelList.size(); i++) {
+			labelList.get(i).setWrapText(true);
+		}
 	}
 	
-	// view setup
+	// ----- VIEW SETUP ----- //
 	public void displayQuestion(Question question) {
+		// set all answers visible
+		for(int i=0; i<labelList.size(); i++) {
+			labelList.get(i).setVisible(true);
+			checkBoxList.get(i).setVisible(true);
+			imageList.get(i).setVisible(true);
+		}
+		
+		// display question and answers
 		questionTextLabel.setText(question.getQuestionText());
 		
-		bLabel.setWrapText(true);
+		for(int i=0; i<question.getNumbOfAnswers(); i++) {
+			labelList.get(i).setText(question.getAnswers()[i]);
+		}
 		
-		aLabel.setText(question.getAnswers()[0]);
-		bLabel.setText(question.getAnswers()[1]);
-		cLabel.setText(question.getAnswers()[2]);
-		dLabel.setText(question.getAnswers()[3]);
-		
+		// set unused answers not visible
+		for(int i=question.getNumbOfAnswers()-1; i<labelList.size(); i++) {
+			labelList.get(i).setVisible(false);
+			checkBoxList.get(i).setVisible(false);
+			imageList.get(i).setVisible(false);
+		}
 	}
 }

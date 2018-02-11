@@ -16,6 +16,10 @@ public class Question {
 		numbOfRep = 1; // default
 	}
 	
+	public int getNumbOfAnswers() {
+		return answers.length;
+	}
+	
 	public String getQuestionFileName() {
 		return questionFileName;
 	}

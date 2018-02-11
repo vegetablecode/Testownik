@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import java.util.ArrayList?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuestionController">
    <children>
@@ -57,4 +58,46 @@
       <Label fx:id="jLabel" layoutX="434.0" layoutY="386.0" prefHeight="66.0" prefWidth="300.0" />
       <ImageView fx:id="jImage" fitHeight="66.0" fitWidth="309.0" layoutX="446.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true" />
    </children>
+   <fx:define>
+        <ArrayList fx:id="labelList" >
+            <fx:reference source="aLabel"/>
+            <fx:reference source="bLabel"/>
+            <fx:reference source="cLabel"/>
+            <fx:reference source="dLabel"/>
+            <fx:reference source="eLabel"/>
+            <fx:reference source="fLabel"/>
+            <fx:reference source="gLabel"/>
+            <fx:reference source="hLabel"/>
+            <fx:reference source="iLabel"/>
+            <fx:reference source="jLabel"/>
+        </ArrayList>
+    </fx:define>
+    <fx:define>
+        <ArrayList fx:id="checkBoxList" >
+            <fx:reference source="aCheckBox"/>
+            <fx:reference source="bCheckBox"/>
+            <fx:reference source="cCheckBox"/>
+            <fx:reference source="dCheckBox"/>
+            <fx:reference source="eCheckBox"/>
+            <fx:reference source="fCheckBox"/>
+            <fx:reference source="gCheckBox"/>
+            <fx:reference source="hCheckBox"/>
+            <fx:reference source="iCheckBox"/>
+            <fx:reference source="jCheckBox"/>
+        </ArrayList>
+    </fx:define>
+    <fx:define>
+        <ArrayList fx:id="imageList" >
+            <fx:reference source="aImage"/>
+            <fx:reference source="bImage"/>
+            <fx:reference source="cImage"/>
+            <fx:reference source="dImage"/>
+            <fx:reference source="eImage"/>
+            <fx:reference source="fImage"/>
+            <fx:reference source="gImage"/>
+            <fx:reference source="hImage"/>
+            <fx:reference source="iImage"/>
+            <fx:reference source="jImage"/>
+        </ArrayList>
+    </fx:define>
 </Pane>
