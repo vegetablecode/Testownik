@@ -40,7 +40,7 @@ public class Question {
 		return numbOfRep;
 	}
 	
-	public boolean checkIfCorrect(boolean userAnswers) {
+	public boolean checkIfCorrect(boolean[] userAnswers) {
 		if(correctAnswers.equals(userAnswers))
 			return true;
 		else return false;

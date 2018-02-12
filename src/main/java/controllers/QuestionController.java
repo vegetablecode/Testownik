@@ -36,9 +36,17 @@ public class QuestionController {
 	}
 	@FXML
 	public void checkAnswers() {
-		boolean temp[] = getUserAnswers(questionList.getQuestion(questionNumber));
-		for(int i=0; i<questionList.getQuestion(questionNumber).getNumbOfAnswers(); i++)
-			System.out.println(temp[i]);
+		Question currentQuestion = questionList.getQuestion(questionNumber);
+		if(currentQuestion.checkIfCorrect(getUserAnswers(currentQuestion))) {
+			questionList.getQuestion(questionNumber).decNumbOfRep(1);
+			questionList.incNumbOfCorrectAnswers();
+		}
+		else {
+			questionList.getQuestion(questionNumber).incNumbOfRep(1); // inc of rep should be choosed before the test
+			questionList.incNumbOfWrongAnswers();
+		}
+		
+		
 		questionNumber++;
 		displayQuestion(questionList.getQuestion(questionNumber));
 	}

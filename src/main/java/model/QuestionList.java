@@ -20,6 +20,14 @@ public class QuestionList {
 		questions[index] = question;
 	}
 	
+	public void incNumbOfCorrectAnswers() {
+		numbOfCorrectAnswers++;
+	}
+	
+	public void incNumbOfWrongAnswers() {
+		numbOfWrongAnswers++;
+	}
+	
 	public Question getQuestion(int index) {
 		return questions[index];
 	}
