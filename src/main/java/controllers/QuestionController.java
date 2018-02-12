@@ -36,6 +36,9 @@ public class QuestionController {
 	}
 	@FXML
 	public void checkAnswers() {
+		boolean temp[] = getUserAnswers(questionList.getQuestion(questionNumber));
+		for(int i=0; i<questionList.getQuestion(questionNumber).getNumbOfAnswers(); i++)
+			System.out.println(temp[i]);
 		questionNumber++;
 		displayQuestion(questionList.getQuestion(questionNumber));
 	}
@@ -88,4 +91,16 @@ public class QuestionController {
 			imageList.get(i).setVisible(false);
 		}
 	}
+	
+	// ----- METHODS ----- //
+	public boolean[] getUserAnswers(Question question) {
+		boolean[] userAnswers = new boolean[question.getNumbOfAnswers()];
+		for(int i=0; i<question.getNumbOfAnswers(); i++) {
+			if(checkBoxList.get(i).isSelected()==true)
+				userAnswers[i] = true;
+			else userAnswers[i] = false;
+		}
+		return userAnswers;
+	}
+	
 }
