@@ -19,7 +19,7 @@ public class QuestionList {
 	public void setQuestion(int index, Question question) {
 		questions[index] = question;
 	}
-	
+
 	public void incNumbOfCorrectAnswers() {
 		numbOfCorrectAnswers++;
 	}

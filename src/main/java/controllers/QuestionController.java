@@ -28,6 +28,10 @@ public class QuestionController {
 	private List<ImageView> imageList;
 	@FXML
 	private Label questionTextLabel;
+	@FXML
+	private ImageView questionTextImage;
+	@FXML
+	private Label questionFileLabel;
 	
 	// ----- FXML METHODS ----- //
 	@FXML
@@ -78,10 +82,11 @@ public class QuestionController {
 	
 	// ----- VIEW SETUP ----- //
 	public void displayQuestion(Question question) {
-		// set all answers visible
+		// set all answers visible & unselect checkboxes
 		for(int i=0; i<labelList.size(); i++) {
 			labelList.get(i).setVisible(true);
 			checkBoxList.get(i).setVisible(true);
+			checkBoxList.get(i).setSelected(false);
 			imageList.get(i).setVisible(true);
 		}
 		
@@ -98,6 +103,17 @@ public class QuestionController {
 			checkBoxList.get(i).setVisible(false);
 			imageList.get(i).setVisible(false);
 		}
+		
+		// display data
+		questionFileLabel.setText(question.getQuestionFileName());
+	}
+	
+	public void displayStats() {
+		//
+	}
+	
+	public void dispayRightAnswers(boolean isAnswerRight) {
+		//
 	}
 	
 	// ----- METHODS ----- //

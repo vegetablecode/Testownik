@@ -13,7 +13,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuestionController">
    <children>
       <Button layoutX="724.0" layoutY="559.0" mnemonicParsing="false" onAction="#backToMenu" text="Powrót" />
-      <Label fx:id="questionTextLabel" layoutX="24.0" layoutY="39.0" prefHeight="93.0" prefWidth="757.0" text="test" />
+      <Label fx:id="questionTextLabel" layoutX="24.0" layoutY="39.0" prefHeight="93.0" prefWidth="473.0" text="test" />
       <Button layoutX="724.0" layoutY="509.0" mnemonicParsing="false" onAction="#checkAnswers" prefHeight="41.0" prefWidth="61.0" text="OK" />
       <Text layoutX="21.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Treść pytania" wrappingWidth="145.21875">
          <font>
@@ -25,7 +25,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Separator layoutX="22.0" layoutY="12.0" prefHeight="9.0" prefWidth="757.0" />
+      <Separator layoutX="22.0" layoutY="11.0" prefHeight="9.0" prefWidth="485.0" />
       <CheckBox fx:id="aCheckBox" layoutX="24.0" layoutY="175.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
       <Label fx:id="aLabel" layoutX="55.0" layoutY="163.0" prefHeight="66.0" prefWidth="300.0" />
       <ImageView fx:id="aImage" fitHeight="66.0" fitWidth="309.0" layoutX="69.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" />
@@ -57,47 +57,51 @@
       <CheckBox fx:id="jCheckBox" layoutX="403.0" layoutY="398.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="31.0" />
       <Label fx:id="jLabel" layoutX="434.0" layoutY="386.0" prefHeight="66.0" prefWidth="300.0" />
       <ImageView fx:id="jImage" fitHeight="66.0" fitWidth="309.0" layoutX="446.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="questionTextImage" fitHeight="77.0" fitWidth="473.0" layoutX="24.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" />
+      <Separator layoutX="502.0" layoutY="20.0" orientation="VERTICAL" prefHeight="106.0" prefWidth="11.0" />
+      <Label layoutX="513.0" layoutY="12.0" text="Numer pytania:" />
+      <Label fx:id="questionFileLabel" layoutX="611.0" layoutY="12.0" prefHeight="17.0" prefWidth="93.0" />
    </children>
    <fx:define>
-        <ArrayList fx:id="labelList" >
-            <fx:reference source="aLabel"/>
-            <fx:reference source="bLabel"/>
-            <fx:reference source="cLabel"/>
-            <fx:reference source="dLabel"/>
-            <fx:reference source="eLabel"/>
-            <fx:reference source="fLabel"/>
-            <fx:reference source="gLabel"/>
-            <fx:reference source="hLabel"/>
-            <fx:reference source="iLabel"/>
-            <fx:reference source="jLabel"/>
+        <ArrayList fx:id="labelList">
+            <fx:reference source="aLabel" />
+            <fx:reference source="bLabel" />
+            <fx:reference source="cLabel" />
+            <fx:reference source="dLabel" />
+            <fx:reference source="eLabel" />
+            <fx:reference source="fLabel" />
+            <fx:reference source="gLabel" />
+            <fx:reference source="hLabel" />
+            <fx:reference source="iLabel" />
+            <fx:reference source="jLabel" />
         </ArrayList>
     </fx:define>
     <fx:define>
-        <ArrayList fx:id="checkBoxList" >
-            <fx:reference source="aCheckBox"/>
-            <fx:reference source="bCheckBox"/>
-            <fx:reference source="cCheckBox"/>
-            <fx:reference source="dCheckBox"/>
-            <fx:reference source="eCheckBox"/>
-            <fx:reference source="fCheckBox"/>
-            <fx:reference source="gCheckBox"/>
-            <fx:reference source="hCheckBox"/>
-            <fx:reference source="iCheckBox"/>
-            <fx:reference source="jCheckBox"/>
+        <ArrayList fx:id="checkBoxList">
+            <fx:reference source="aCheckBox" />
+            <fx:reference source="bCheckBox" />
+            <fx:reference source="cCheckBox" />
+            <fx:reference source="dCheckBox" />
+            <fx:reference source="eCheckBox" />
+            <fx:reference source="fCheckBox" />
+            <fx:reference source="gCheckBox" />
+            <fx:reference source="hCheckBox" />
+            <fx:reference source="iCheckBox" />
+            <fx:reference source="jCheckBox" />
         </ArrayList>
     </fx:define>
     <fx:define>
-        <ArrayList fx:id="imageList" >
-            <fx:reference source="aImage"/>
-            <fx:reference source="bImage"/>
-            <fx:reference source="cImage"/>
-            <fx:reference source="dImage"/>
-            <fx:reference source="eImage"/>
-            <fx:reference source="fImage"/>
-            <fx:reference source="gImage"/>
-            <fx:reference source="hImage"/>
-            <fx:reference source="iImage"/>
-            <fx:reference source="jImage"/>
+        <ArrayList fx:id="imageList">
+            <fx:reference source="aImage" />
+            <fx:reference source="bImage" />
+            <fx:reference source="cImage" />
+            <fx:reference source="dImage" />
+            <fx:reference source="eImage" />
+            <fx:reference source="fImage" />
+            <fx:reference source="gImage" />
+            <fx:reference source="hImage" />
+            <fx:reference source="iImage" />
+            <fx:reference source="jImage" />
         </ArrayList>
     </fx:define>
 </Pane>
