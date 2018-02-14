@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import model.Question;
 import model.QuestionList;
 import utils.QuestionReader;
@@ -49,8 +50,11 @@ public class QuestionController {
 			questionList.getQuestion(questionNumber).incNumbOfRep(1); // inc of rep should be choosed before the test
 			questionList.incNumbOfWrongAnswers();
 		}
+		displayRightAnswers(currentQuestion);
 		
-		
+	}
+	@FXML
+	public void nextQuestion() {
 		questionNumber++;
 		displayQuestion(questionList.getQuestion(questionNumber));
 	}
@@ -85,6 +89,7 @@ public class QuestionController {
 		// set all answers visible & unselect checkboxes
 		for(int i=0; i<labelList.size(); i++) {
 			labelList.get(i).setVisible(true);
+			labelList.get(i).setTextFill(Color.BLACK);
 			checkBoxList.get(i).setVisible(true);
 			checkBoxList.get(i).setSelected(false);
 			imageList.get(i).setVisible(true);
@@ -98,7 +103,7 @@ public class QuestionController {
 		}
 		
 		// set unused answers not visible
-		for(int i=question.getNumbOfAnswers()-1; i<labelList.size(); i++) {
+		for(int i=question.getNumbOfAnswers(); i<labelList.size(); i++) {
 			labelList.get(i).setVisible(false);
 			checkBoxList.get(i).setVisible(false);
 			imageList.get(i).setVisible(false);
@@ -112,8 +117,11 @@ public class QuestionController {
 		//
 	}
 	
-	public void dispayRightAnswers(boolean isAnswerRight) {
-		//
+	public void displayRightAnswers(Question question) {
+		for(int i=0; i<question.getNumbOfAnswers(); i++) {
+			if(question.getCorrectAnswers()[i]==true)
+				labelList.get(i).setTextFill(Color.RED);
+		}
 	}
 	
 	// ----- METHODS ----- //
