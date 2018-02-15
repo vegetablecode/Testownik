@@ -6,6 +6,7 @@ import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import model.Question;
@@ -33,6 +34,10 @@ public class QuestionController {
 	private ImageView questionTextImage;
 	@FXML
 	private Label questionFileLabel;
+	@FXML
+	private Label progressLabel;
+	@FXML
+	private ProgressBar progressBar;
 	
 	// ----- FXML METHODS ----- //
 	@FXML
@@ -51,7 +56,9 @@ public class QuestionController {
 			questionList.incNumbOfWrongAnswers();
 		}
 		displayRightAnswers(currentQuestion);
+		displayStats();
 		
+
 	}
 	@FXML
 	public void nextQuestion() {
@@ -79,6 +86,7 @@ public class QuestionController {
 		displayQuestion(questionList.getQuestion(questionNumber));
 		
 		// view setup
+		questionTextLabel.setWrapText(true);
 		for(int i=0; i<labelList.size(); i++) {
 			labelList.get(i).setWrapText(true);
 		}
@@ -111,10 +119,22 @@ public class QuestionController {
 		
 		// display data
 		questionFileLabel.setText(question.getQuestionFileName());
+		displayStats();
 	}
 	
 	public void displayStats() {
-		//
+		// temp
+		double numbOfLearnedQuestions = questionList.getNumbOfLearnedQuestions();
+		double numbOfQuestions = questionList.getNumbOfQuestions();
+		// progress label & bar
+		String progressValue = "";
+		double progressPercentage = numbOfLearnedQuestions/numbOfQuestions;
+		progressValue += String.valueOf((int)numbOfLearnedQuestions);
+		progressValue += " / ";
+		progressValue += String.valueOf((int)numbOfQuestions);
+		progressLabel.setText(progressValue);
+		progressBar.setProgress(progressPercentage);
+		
 	}
 	
 	public void displayRightAnswers(Question question) {

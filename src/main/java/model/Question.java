@@ -41,9 +41,10 @@ public class Question {
 	}
 	
 	public boolean checkIfCorrect(boolean[] userAnswers) {
-		if(correctAnswers.equals(userAnswers))
+		for(int i=0; i<userAnswers.length; i++)
+			if(userAnswers[i]!=correctAnswers[i])
+				return false;
 			return true;
-		else return false;
 	}
 	
 	public void incNumbOfRep(int n) {

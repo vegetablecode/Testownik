@@ -43,5 +43,14 @@ public class QuestionList {
 	public int getNumbOfWrongAnswers() {
 		return numbOfWrongAnswers;
 	}
+	
+	public int getNumbOfLearnedQuestions() {
+		int numbOfLearnedQuestions = 0;
+		for(int i=0; i<numbOfQuestions; i++) {
+			if(questions[i].getNumbOfRep()==0)
+				numbOfLearnedQuestions++;
+		}
+		return numbOfLearnedQuestions;
+	}
 
 }
