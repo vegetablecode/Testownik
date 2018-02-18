@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -38,6 +39,12 @@ public class QuestionController {
 	private Label progressLabel;
 	@FXML
 	private ProgressBar progressBar;
+	@FXML
+	private Button nextButton;
+	@FXML
+	private Button checkButton;
+	@FXML
+	private Button finishButton;
 	
 	// ----- FXML METHODS ----- //
 	@FXML
@@ -57,12 +64,24 @@ public class QuestionController {
 		}
 		displayRightAnswers(currentQuestion);
 		displayStats();
-		
-
+		nextButton.setVisible(true);
+		checkButton.setVisible(false);
 	}
 	@FXML
 	public void nextQuestion() {
-		questionNumber++;
+		if(questionNumber<questionList.getNumbOfQuestions())
+			questionNumber++;
+		else {
+			questionNumber = 0;
+		}
+		while(questionList.getQuestion(questionNumber).getNumbOfRep()==0) {
+			questionNumber++;
+			if(questionNumber>questionList.getNumbOfQuestions()) {
+				nextButton.setVisible(false);
+				checkButton.setVisible(false);
+				finishButton.setVisible(true);
+			}
+		}
 		displayQuestion(questionList.getQuestion(questionNumber));
 	}
 	
@@ -86,10 +105,18 @@ public class QuestionController {
 		displayQuestion(questionList.getQuestion(questionNumber));
 		
 		// view setup
+		finishButton.setVisible(false);
 		questionTextLabel.setWrapText(true);
 		for(int i=0; i<labelList.size(); i++) {
 			labelList.get(i).setWrapText(true);
 		}
+	}
+	
+	@FXML
+	public void finishTest() {
+		displayEndScreen();
+		// display finish screen
+		// display full stats, time, etc
 	}
 	
 	// ----- VIEW SETUP ----- //
@@ -120,6 +147,8 @@ public class QuestionController {
 		// display data
 		questionFileLabel.setText(question.getQuestionFileName());
 		displayStats();
+		nextButton.setVisible(false);
+		checkButton.setVisible(true);
 	}
 	
 	public void displayStats() {
@@ -142,6 +171,10 @@ public class QuestionController {
 			if(question.getCorrectAnswers()[i]==true)
 				labelList.get(i).setTextFill(Color.RED);
 		}
+	}
+	
+	public void displayEndScreen() {
+		System.out.println("CALL FINISH SCREEN");
 	}
 	
 	// ----- METHODS ----- //
