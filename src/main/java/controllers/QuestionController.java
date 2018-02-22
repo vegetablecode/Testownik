@@ -72,23 +72,38 @@ public class QuestionController {
 	}
 	@FXML
 	public void nextQuestion() {
+		System.out.println("QN"+questionNumber); // DEBUG
 		// check if questionNumber < number of questions
-		if(questionNumber<questionList.getNumbOfQuestions()) {
+		if(questionNumber<questionList.getNumbOfQuestions()-1) {
+			System.out.println("QN: plus1"); // DEBUG
 			questionNumber++; 
 		} else {
+			System.out.println("zerowanie"); // DEBUG
 			questionNumber = 0;
 		}
 		// skip learned question
+		int counter = 0;
 		while(questionList.getQuestion(questionNumber).getNumbOfRep()==0) {
+			System.out.println("skipQuestion"); // DEBUG
 			questionNumber++;
-			if(questionNumber>questionList.getNumbOfQuestions()) {
-				nextButton.setVisible(false);
-				checkButton.setVisible(false);
-				finishButton.setVisible(true);
-				break;
+			if(questionNumber==questionList.getNumbOfQuestions()) {
+				if(counter<2) {
+					questionNumber=0;
+					counter++;
+				} else {
+					nextButton.setVisible(false);
+					checkButton.setVisible(false);
+					finishButton.setVisible(true);
+					questionNumber = -1;
+					break;	
+				}
 			}
 		}
-		displayQuestion(questionList.getQuestion(questionNumber));
+		if(questionNumber!=-1)
+			displayQuestion(questionList.getQuestion(questionNumber));
+		else {
+			System.out.println("Koniec testu"); // DEBUG
+		}
 	}
 	
 	// ----- CLASS SETUP ----- //
