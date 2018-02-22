@@ -53,6 +53,7 @@ public class QuestionController {
 	}
 	@FXML
 	public void checkAnswers() {
+		// check the answer
 		Question currentQuestion = questionList.getQuestion(questionNumber);
 		if(currentQuestion.checkIfCorrect(getUserAnswers(currentQuestion))) {
 			questionList.getQuestion(questionNumber).decNumbOfRep(1);
@@ -62,24 +63,29 @@ public class QuestionController {
 			questionList.getQuestion(questionNumber).incNumbOfRep(1); // inc of rep should be choosed before the test
 			questionList.incNumbOfWrongAnswers();
 		}
+		// display the score
 		displayRightAnswers(currentQuestion);
 		displayStats();
+		// set buttons visible
 		nextButton.setVisible(true);
 		checkButton.setVisible(false);
 	}
 	@FXML
 	public void nextQuestion() {
-		if(questionNumber<questionList.getNumbOfQuestions())
-			questionNumber++;
-		else {
+		// check if questionNumber < number of questions
+		if(questionNumber<questionList.getNumbOfQuestions()) {
+			questionNumber++; 
+		} else {
 			questionNumber = 0;
 		}
+		// skip learned question
 		while(questionList.getQuestion(questionNumber).getNumbOfRep()==0) {
 			questionNumber++;
 			if(questionNumber>questionList.getNumbOfQuestions()) {
 				nextButton.setVisible(false);
 				checkButton.setVisible(false);
 				finishButton.setVisible(true);
+				break;
 			}
 		}
 		displayQuestion(questionList.getQuestion(questionNumber));
