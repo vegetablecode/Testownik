@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+import javafx.scene.image.Image;
 import model.Question;
 
 // okay, this class needs to be fixed, cuz it's written so bad
@@ -47,7 +48,7 @@ public class QuestionReader {
 
 	public Question getQuestion(int index) throws IOException {
 		try (BufferedReader br = new BufferedReader(
-				new InputStreamReader(new FileInputStream(files[index]), "iso8859_2"))) {
+				new InputStreamReader(new FileInputStream(files[index]), "Cp1250"))) {
 			String line;
 			// first line: number of answers
 			line = br.readLine();
@@ -69,6 +70,25 @@ public class QuestionReader {
 			c.getStackTrace();
 			return null;
 		}
+	}
+
+	public void getImage(String questionText) {
+		System.out.println("SIEMANKO");
+		String nameOfFile = removeMarkers(questionText);
+		System.out.println(nameOfFile);
+		//return null;
+	}
+	
+	public String removeMarkers(String questionText) {
+		char[] charText = new char[questionText.length()-11];
+		int counter = 0;
+		int i = 5;
+		while(questionText.charAt(i)!='[') {
+			charText[counter] = questionText.charAt(i);
+			counter++;
+			i++;
+		}
+		return new String(charText);
 	}
 
 }

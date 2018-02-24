@@ -152,7 +152,13 @@ public class QuestionController {
 		}
 		
 		// display question and answers
-		questionTextLabel.setText(question.getQuestionText());
+		if(question.getQuestionText().charAt(0)=='[') {
+			questionTextLabel.setText(question.getQuestionText());
+			questionReader.getImage(question.getQuestionText());
+			//questionTextImage.setImage(questionReader.getImage(question.getQuestionText()));
+		} else {
+			questionTextLabel.setText(question.getQuestionText());
+		}
 		
 		for(int i=0; i<question.getNumbOfAnswers(); i++) {
 			labelList.get(i).setText(question.getAnswers()[i]);
