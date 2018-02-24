@@ -3,6 +3,7 @@ package utils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -72,11 +73,13 @@ public class QuestionReader {
 		}
 	}
 
-	public void getImage(String questionText) {
-		System.out.println("SIEMANKO");
+	public Image getImage(String folderName, String questionText) throws FileNotFoundException {
 		String nameOfFile = removeMarkers(questionText);
 		System.out.println(nameOfFile);
-		//return null;
+		String tempName = folderName + "\\" + nameOfFile;
+		System.out.println(tempName);
+		Image outputImage = new Image(new FileInputStream("\\baza\\074.png"));
+		return outputImage;
 	}
 	
 	public String removeMarkers(String questionText) {

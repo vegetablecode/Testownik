@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -71,7 +72,7 @@ public class QuestionController {
 		checkButton.setVisible(false);
 	}
 	@FXML
-	public void nextQuestion() {
+	public void nextQuestion() throws FileNotFoundException {
 		System.out.println("QN"+questionNumber); // DEBUG
 		// check if questionNumber < number of questions
 		if(questionNumber<questionList.getNumbOfQuestions()-1) {
@@ -141,7 +142,7 @@ public class QuestionController {
 	}
 	
 	// ----- VIEW SETUP ----- //
-	public void displayQuestion(Question question) {
+	public void displayQuestion(Question question) throws FileNotFoundException {
 		// set all answers visible & unselect checkboxes
 		for(int i=0; i<labelList.size(); i++) {
 			labelList.get(i).setVisible(true);
@@ -154,8 +155,9 @@ public class QuestionController {
 		// display question and answers
 		if(question.getQuestionText().charAt(0)=='[') {
 			questionTextLabel.setText(question.getQuestionText());
-			questionReader.getImage(question.getQuestionText());
-			//questionTextImage.setImage(questionReader.getImage(question.getQuestionText()));
+			questionTextLabel.setVisible(false);
+			questionTextImage.setVisible(true);
+			questionTextImage.setImage(questionReader.getImage(folderName, question.getQuestionText()));
 		} else {
 			questionTextLabel.setText(question.getQuestionText());
 		}
