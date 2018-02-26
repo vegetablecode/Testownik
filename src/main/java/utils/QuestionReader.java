@@ -34,8 +34,11 @@ public class QuestionReader {
 		// check number of questions
 		numbOfQuestions = readFiles();
 		fileNames = new String[numbOfQuestions];
-		for (int i = 0; i < numbOfQuestions; i++)
+		for (int i = 0; i < numbOfQuestions; i++) {
 			fileNames[i] = files[i].getPath();
+			//System.out.println(fileNames[i]);
+		}
+		
 	}
 
 	public int readFiles() throws IOException {
@@ -76,9 +79,9 @@ public class QuestionReader {
 	public Image getImage(String folderName, String questionText) throws FileNotFoundException {
 		String nameOfFile = removeMarkers(questionText);
 		System.out.println(nameOfFile);
-		String tempName = folderName + "\\" + nameOfFile;
+		String tempName = folderName + "//" + nameOfFile;
 		System.out.println(tempName);
-		Image outputImage = new Image(new FileInputStream("\\baza\\074.png"));
+		Image outputImage = new Image(new FileInputStream(tempName));
 		return outputImage;
 	}
 	
