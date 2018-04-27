@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Text?>
 <?import java.util.ArrayList?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuestionController">
    <children>
       <Button layoutX="716.0" layoutY="559.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="27.0" prefWidth="69.0" text="Powrót" />
@@ -70,6 +69,8 @@
       <Label layoutX="513.0" layoutY="41.0" text="Progress: " />
       <Label fx:id="progressLabel" layoutX="670.0" layoutY="41.0" text="prog" />
       <Button fx:id="finishButton" layoutX="716.0" layoutY="509.0" mnemonicParsing="false" onAction="#finishTest" prefHeight="41.0" prefWidth="69.0" text="FINISH" />
+      <Label layoutX="513.0" layoutY="72.0" text="Liczba powtórzeń pytania:" />
+      <Label fx:id="numbOfRepsLabel" layoutX="682.0" layoutY="72.0" text="0" />
    </children>
    <fx:define>
         <ArrayList fx:id="labelList">

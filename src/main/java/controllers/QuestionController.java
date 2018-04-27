@@ -46,6 +46,8 @@ public class QuestionController {
 	private Button checkButton;
 	@FXML
 	private Button finishButton;
+	@FXML
+	private Label numbOfRepsLabel;
 	
 	// ----- FXML METHODS ----- //
 	@FXML
@@ -163,7 +165,15 @@ public class QuestionController {
 		}
 		
 		for(int i=0; i<question.getNumbOfAnswers(); i++) {
-			labelList.get(i).setText(question.getAnswers()[i]);
+			if(question.getAnswers()[i].charAt(0)=='[') {
+				labelList.get(i).setText(question.getAnswers()[i]);
+				labelList.get(i).setVisible(false);
+				imageList.get(i).setVisible(true);
+				imageList.get(i).setImage(questionReader.getImage(folderName, question.getAnswers()[i]));
+			} else {
+				labelList.get(i).setText(question.getAnswers()[i]);
+				imageList.get(i).setVisible(false);
+			}
 		}
 		
 		// set unused answers not visible
@@ -178,6 +188,7 @@ public class QuestionController {
 		displayStats();
 		nextButton.setVisible(false);
 		checkButton.setVisible(true);
+		
 	}
 	
 	public void displayStats() {
@@ -193,12 +204,15 @@ public class QuestionController {
 		progressLabel.setText(progressValue);
 		progressBar.setProgress(progressPercentage);
 		
+		numbOfRepsLabel.setText(Integer.toString(questionList.getQuestion(questionNumber).getNumbOfRep()));
+		
 	}
 	
 	public void displayRightAnswers(Question question) {
 		for(int i=0; i<question.getNumbOfAnswers(); i++) {
 			if(question.getCorrectAnswers()[i]==true)
 				labelList.get(i).setTextFill(Color.RED);
+				//imageList.get(i).ima
 		}
 	}
 	
